@@ -16,20 +16,20 @@ for i in range(3):
     end_time_str = datetime.utcfromtimestamp(end_time).strftime('%Y-%m-%d')
 
     query = f"language:python created:{start_time_str}..{end_time_str}";
-    print(query)
+    
 
     result = g.search_repositories(query)
 
     end_time -= 86400
     start_time -= 86400
 
-    print(result.totalCount)
+    
 
     for repository in result:
         print(repository.name)
         os.system(f"git clone {repository.clone_url} repos/{repository.owner.login}/{repository.name}")
-        break
-    break
+        
+    
     
 
   
